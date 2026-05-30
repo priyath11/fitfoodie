@@ -4,9 +4,7 @@ import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_sizes.dart';
 import '../../core/theme/app_decorations.dart';
 import '../../core/theme/app_text_styles.dart';
-import '../../models/models.dart';
 import '../../providers/providers.dart';
-import '../home/home_screen.dart';
 import '../splash/splash_screen.dart';
 import '../widgets/common_widgets.dart';
 

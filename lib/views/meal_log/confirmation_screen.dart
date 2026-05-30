@@ -10,7 +10,6 @@ import '../../providers/providers.dart';
 import '../results/results_screen.dart';
 import '../widgets/common_widgets.dart';
 
-
 // ─────────────────────────────────────────
 // CONFIRMATION SCREEN
 // Shows after 3 photos are taken
@@ -119,7 +118,6 @@ class _ConfirmationScreenState extends ConsumerState<ConfirmationScreen>
             photo1: widget.photo1,
             photo2: widget.photo2,
             photo3: widget.photo3,
-            region: user.region,
             dietType: user.dietType,
           );
           if (dishes.isNotEmpty) break; // Success
@@ -278,7 +276,6 @@ class _ConfirmationScreenState extends ConsumerState<ConfirmationScreen>
           confirmedDishes: _dishes,
           oilLevel: widget.oilLevel,
           cookingLocation: widget.cookingLocation,
-          region: user.region,
           mealName: mealName,
         );
 

@@ -4,7 +4,6 @@ import 'package:firebase_ai/firebase_ai.dart';
 
 import '../../models/models.dart';
 
-
 class GeminiService {
   late final GenerativeModel _visionModel;
   late final GenerativeModel _nutritionModel;
@@ -34,8 +33,8 @@ class GeminiService {
     required File photo1,
     required File photo2,
     required File photo3,
-    required String region,
     required String dietType,
+    String region = 'global',
   }) async {
     try {
       final bytes1 = await photo1.readAsBytes();
@@ -89,8 +88,8 @@ class GeminiService {
     required List<IdentifiedDish> confirmedDishes,
     required String oilLevel,
     required String cookingLocation,
-    required String region,
     required String mealName,
+    String region = 'global',
   }) async {
     try {
       final dishList = confirmedDishes
@@ -210,11 +209,11 @@ class GeminiService {
 
   // ── IDENTIFICATION PROMPT ─────────────────
   String _identificationPrompt(String region, String dietType) {
-    return 'You are the most accurate Indian food identification AI in the world. '
-        'You have complete knowledge of every Indian dish from every region including '
-        'Kerala, Tamil Nadu, Karnataka, Andhra, Telangana, Maharashtra, Punjab, '
-        'Rajasthan, Bengal, Gujarat, and all street foods, home foods, restaurant '
-        'foods, festival foods, snacks, sweets, and drinks across India.\n\n'
+    return 'You are the world\'s most accurate food identification and nutrition AI. '
+        'You have complete knowledge of every cuisine on earth — Indian (Kerala, Tamil Nadu, '
+        'North Indian, Mughlai, street food), Western (burgers, pasta, pizza, salads), '
+        'Asian (Chinese, Japanese, Thai, Korean), Middle Eastern, Mediterranean, '
+        'and every other regional cuisine. You identify any food from any country accurately.\n\n'
         'You are looking at 3 photos of the same food or drink:\n'
         'Photo 1: Top-down bird eye view - see everything present\n'
         'Photo 2: 45-degree side angle - see shape, depth, volume\n'
@@ -286,7 +285,8 @@ class GeminiService {
     required String locationNote,
     required String region,
   }) {
-    return 'You are an expert Indian nutritionist with deep knowledge of IFCT Indian Food Composition Tables.\n\n'
+    return 'You are an expert nutritionist with complete knowledge of every world cuisine. '
+        'You know IFCT values for Indian food and equivalent databases for all other cuisines.\n\n'
         'The user confirmed these dishes with portions:\n'
         '$dishList\n\n'
         'Use the portion shown above as primary reference for weight estimation. '

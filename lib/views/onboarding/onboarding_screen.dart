@@ -5,7 +5,6 @@ import '../../core/constants/app_colors.dart';
 import '../../core/constants/app_sizes.dart';
 import '../../core/theme/app_decorations.dart';
 import '../../core/theme/app_text_styles.dart';
-import '../../models/models.dart';
 import '../../providers/providers.dart';
 import '../home/home_screen.dart';
 import '../widgets/common_widgets.dart';
@@ -42,10 +41,9 @@ class OnboardingScreen extends ConsumerWidget {
   Widget _buildStep(int step) {
     switch (step) {
       case 0: return const _GoalStep(key: ValueKey('goal'));
-      case 1: return const _RegionStep(key: ValueKey('region'));
-      case 2: return const _DietStep(key: ValueKey('diet'));
-      case 3: return const _GenderStep(key: ValueKey('gender'));
-      case 4: return const _WeightStep(key: ValueKey('weight'));
+      case 1: return const _DietStep(key: ValueKey('diet'));
+      case 2: return const _GenderStep(key: ValueKey('gender'));
+      case 3: return const _WeightStep(key: ValueKey('weight'));
       default: return const _GoalStep(key: ValueKey('goal'));
     }
   }
@@ -175,7 +173,7 @@ class _GoalStep extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _OnboardingHeader(stepLabel: 'STEP 01 OF 05', currentStep: 0, totalSteps: 5,
+          _OnboardingHeader(stepLabel: 'STEP 01 OF 04', currentStep: 0, totalSteps: 4,
               title: "What's your goal?", subtitle: "We build your personal calorie budget around this."),
           const SizedBox(height: AppSizes.paddingXL),
           ...goals.map((g) {
@@ -246,7 +244,7 @@ class _RegionStep extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _OnboardingHeader(stepLabel: 'STEP 02 OF 05', currentStep: 1, totalSteps: 5,
+          _OnboardingHeader(stepLabel: 'STEP 02 OF 04', currentStep: 1, totalSteps: 4,
               title: 'Where are you from?', subtitle: "We load the right food database for your region."),
           const SizedBox(height: AppSizes.paddingXL),
           GridView.count(
@@ -279,7 +277,7 @@ class _RegionStep extends ConsumerWidget {
           ),
           const SizedBox(height: AppSizes.paddingXL),
           _ContinueButton(
-            enabled: state.data.region.isNotEmpty,
+            enabled: state.data.dietType.isNotEmpty,
             onTap: () => ref.read(onboardingViewModelProvider.notifier).nextStep(),
           ),
         ],
@@ -308,7 +306,7 @@ class _DietStep extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _OnboardingHeader(stepLabel: 'STEP 03 OF 05', currentStep: 2, totalSteps: 5,
+          _OnboardingHeader(stepLabel: 'STEP 03 OF 04', currentStep: 2, totalSteps: 4,
               title: 'How do you eat?', subtitle: 'Helps us personalise your protein goals.'),
           const SizedBox(height: AppSizes.paddingXXL),
           ...diets.map((d) {
@@ -360,7 +358,7 @@ class _GenderStep extends ConsumerWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          _OnboardingHeader(stepLabel: 'STEP 04 OF 05', currentStep: 3, totalSteps: 5,
+          _OnboardingHeader(stepLabel: 'STEP 04 OF 04', currentStep: 3, totalSteps: 4,
               title: 'Tell us about you', subtitle: 'Calorie needs differ by gender. This ensures accuracy.'),
           const SizedBox(height: AppSizes.paddingXXL),
           Text('GENDER', style: AppTextStyles.label()),
@@ -687,8 +685,8 @@ class _WeightStepState extends ConsumerState<_WeightStep> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           _OnboardingHeader(
-            stepLabel: 'STEP 05 OF 05 - Almost there',
-            currentStep: 4, totalSteps: 5,
+            stepLabel: 'STEP 04 OF 04 - Almost there',
+            currentStep: 3, totalSteps: 4,
             title: 'Your numbers',
             subtitle: 'We calculate your personal calorie budget using the Harris-Benedict formula.',
           ),

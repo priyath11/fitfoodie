@@ -172,9 +172,7 @@ class OnboardingViewModel extends StateNotifier<OnboardingState> {
             ? state.data.name
             : email.split('@')[0],
         goal: state.data.goal,
-        region: state.data.subRegion.isNotEmpty
-            ? state.data.subRegion
-            : state.data.region,
+        region: 'global',
         dietType: state.data.dietType,
         gender: state.data.gender,
         currentWeight: state.data.currentWeight,

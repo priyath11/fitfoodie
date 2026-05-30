@@ -11,7 +11,6 @@ import '../auth/auth_screen.dart';
 import '../home/home_screen.dart';
 import '../onboarding/onboarding_screen.dart';
 import '../widgets/common_widgets.dart';
-
 // ─────────────────────────────────────────
 // SPLASH SCREEN
 // Logic:
@@ -180,9 +179,9 @@ class _IntroSlidesScreenState extends State<IntroSlidesScreen>
   static const List<_SlideData> _slides = [
     _SlideData(
       icon: Icons.restaurant_outlined,
-      tag: 'MADE FOR INDIA',
+      tag: 'BUILT FOR EVERYONE',
       title: 'Your laddoo\nand your abs.',
-      body: 'Fit Foodie is built around real Indian food. Biryani, butter chicken, Kerala sadya, street chaat. No guilt — just awareness.',
+      body: 'Fit Foodie tracks any food — biryani, burger, sushi, salad. Take 3 photos. AI identifies every dish and calculates accurate calories. No guilt, just awareness.',
       slideType: _SlideType.standard,
     ),
     _SlideData(
@@ -196,7 +195,7 @@ class _IntroSlidesScreenState extends State<IntroSlidesScreen>
       icon: Icons.camera_alt_outlined,
       tag: 'THE MOULD SYSTEM',
       title: '3 photos.\nNot 1.',
-      body: 'Most apps use one photo. We use three — top, side, close-up. Each angle tells the AI something the others cannot.',
+      body: 'Most apps use one photo. We use three — top, side, close-up. Each angle gives the AI depth, volume and texture data the others cannot.',
       slideType: _SlideType.standard,
     ),
     _SlideData(
@@ -633,7 +632,7 @@ class _HowItWorksSlide extends StatelessWidget {
             number: '1',
             angle: "BIRD'S EYE",
             title: 'Identifies every dish',
-            description: 'Held directly above the plate. Our AI maps every dish present and measures the total plate area relative to the mould frame.',
+            description: 'Held directly above your food. Our AI identifies every dish present and measures the area relative to the mould frame.',
             color: AppColors.accent,
           ),
           const SizedBox(height: AppSizes.paddingMD),

@@ -501,7 +501,7 @@ class _EmptyState extends StatelessWidget {
         ),
         const SizedBox(height: AppSizes.paddingSM),
         Text(
-          'Log your first meal and start\nbuilding your weekly picture.',
+          'Take 3 photos of any meal.\nAI identifies every dish and calculates\naccurate calories instantly.',
           style: AppTextStyles.bodySmall(
               color: AppColors.accent.withValues(alpha: 0.4)),
           textAlign: TextAlign.center,

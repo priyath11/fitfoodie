@@ -71,7 +71,7 @@ class _ResultsScreenState extends ConsumerState<ResultsScreen>
       if (!mounted) return;
       setState(() {
         _editableDishes = widget.preloadedResult!.dishes
-            .map((d) => _EditableDish.fromDishModel(d))
+            .map((d) => _EditableDish.fromDishModel(d as DishModel))
             .toList();
       });
       _fadeCtrl.forward();
@@ -105,7 +105,7 @@ class _ResultsScreenState extends ConsumerState<ResultsScreen>
     if (state.result != null && state.result!.success) {
       setState(() {
         _editableDishes = state.result!.dishes
-            .map((d) => _EditableDish.fromDishModel(d))
+            .map((d) => _EditableDish.fromDishModel(d as DishModel))
             .toList();
       });
     }
@@ -163,13 +163,13 @@ class _ResultsScreenState extends ConsumerState<ResultsScreen>
 
   // Recalculate totals from edited dishes
   int get _totalCalMin =>
-      _editableDishes.fold(0, (sum, d) => sum + d.calorieMin);
+      _editableDishes.fold<int>(0, (sum, d) => sum + d.calorieMin);
   int get _totalCalMax =>
-      _editableDishes.fold(0, (sum, d) => sum + d.calorieMax);
+      _editableDishes.fold<int>(0, (sum, d) => sum + d.calorieMax);
   int get _totalProtMin =>
-      _editableDishes.fold(0, (sum, d) => sum + d.proteinMin);
+      _editableDishes.fold<int>(0, (sum, d) => sum + d.proteinMin);
   int get _totalProtMax =>
-      _editableDishes.fold(0, (sum, d) => sum + d.proteinMax);
+      _editableDishes.fold<int>(0, (sum, d) => sum + d.proteinMax);
   int get _avgCal => ((_totalCalMin + _totalCalMax) / 2).round();
   int get _avgProt => ((_totalProtMin + _totalProtMax) / 2).round();
 
